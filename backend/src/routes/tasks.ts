@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     nodeCron.schedule(cron, () => executeTask(newTask));
   }
 
-  res.status(201).send(newTask);
+  res.status(200).send(newTask);
 });
 
 router.get('/', (req, res) => {
@@ -41,7 +41,7 @@ router.get('/executed', (req, res) => {
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
   tasks = tasks.filter(task => task.id !== id);
-  res.status(204).send();
+  res.status(200).send();
 });
 
 const executeTask = (task: Task) => {
